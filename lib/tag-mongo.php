@@ -5,7 +5,7 @@ class Tag{
     
     private static function connect(){
         $m=new Mongo('mongodb://'.TAG_MONGO_DSN, array("persist" => "x"));
-        return $m->selectCollection('tag','alexis');
+        return $m->selectCollection('tag',$_SERVER['REMOTE_USER']);
     }
     private function flatMongoId($m){
         $m['_id']=$m['_id']->{'$id'};

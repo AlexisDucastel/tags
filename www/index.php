@@ -1,15 +1,8 @@
 <?php
 session_start();
-if(isset($_GET['auth'])){
-    if($_GET['auth']== (date('d')+1) ){
-        $_SESSION['authok']='ok';
-        header('Location: /');
-    }
-}
 
-if(!isset($_SESSION['authok'])){
-    $tag=array("legume","salade","viande","poisson","poulet","oeuf");
-    die('tag:'.$tag[rand(0,5)]);
+if(!isset($_SERVER['REMOTE_USER'])){
+    die('config error');
 }
 
 ?><!DOCTYPE html>

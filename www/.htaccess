@@ -3,3 +3,9 @@ RewriteEngine On
 # SSL Only Condition
 RewriteCond %{SERVER_PORT} 80
 RewriteRule ^/?(.*)$ https://%{HTTP_HOST}/$1 [R,L]
+
+AuthType Digest
+AuthName "tag"
+AuthDigestProvider file
+AuthUserFile /home/devzone/projects/tag/auth/.htdigest
+Require valid-user
